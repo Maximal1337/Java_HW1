@@ -9,6 +9,7 @@ public class EmailMessage extends Message implements IDigital {
 	public String getSubject() {
 		return subject;
 	}
+	
 	public void setSubject(String subject) throws IllegalArgumentException{
 		if(subject == null || subject.trim().isEmpty()) throw new IllegalArgumentException("subject cant be null or empty");
 		this.subject = subject;
@@ -17,6 +18,7 @@ public class EmailMessage extends Message implements IDigital {
 	public ArrayList<File> getAttachments() {
 		return attachments;
 	}
+	
 	public void setAttachments(ArrayList<File> attachments) throws AttachmentException{
 		if(attachments == null) throw new AttachmentException("attachments cant be null");
 		this.attachments = attachments;
@@ -34,14 +36,17 @@ public class EmailMessage extends Message implements IDigital {
 		setAttachments(attachments);
 	}
 	
+	@Override
 	public String toString() {
 		return super.toString() + ", subject:" + getSubject() + ", attachments: " + getAttachments();
 	}
-	
+
+	@Override
 	public String printCommunicationMethod() {
 		return "Sent via Email Server";
 	}
-	
+
+	@Override
 	public String generatePreview() {
 		return "[Email] Subject: " + getSubject() + " | From: " + getSender();
 	}

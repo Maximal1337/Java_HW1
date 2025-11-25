@@ -18,7 +18,7 @@ public class BoardMessage extends Message {
 		return boardName;
 	}
 	
-	public void setBoardName(String boardName) {
+	public void setBoardName(String boardName) throws IllegalArgumentException {
 		if(boardName == null || boardName.trim().isEmpty()) throw new IllegalArgumentException("boardName cant be null or empty");
 		this.boardName = boardName;
 	}
@@ -35,10 +35,12 @@ public class BoardMessage extends Message {
 		setBoardName(boardName);
 	}
 	
+	@Override
 	public String toString() {
 		return super.toString() + ", priority: " + getPriorityType() + ", boardName: " + getBoardName();
 	}
-	
+
+	@Override
 	public String generatePreview() {
 		if(getContent().length() < 15) {
 			return "[Board] " + getSender() + ": " + getContent();

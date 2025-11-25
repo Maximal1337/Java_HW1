@@ -7,39 +7,45 @@ public class Main {
 	static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		initializeMessages();
-		boolean running = true;
-		while (running) {
-			printMenu();
-			int choice = getIntInput();
-			switch (choice) {
-				case 1:
-					addMessage();
-					break;
-				case 2:
-					deleteMessage();
-					break;
-				case 3:
-					printAllMessages();
-					break;
-				case 4:
-					searchByKeywords();
-					break;
-				case 5:
-					printDigitalMessages();
-					break;
-				case 6:
-					printMessagePreviews();
-					break;
-				case 0:
-					running = false;
-					System.out.println("Exiting program...");
-					break;
-				default:
-					System.out.println("Invalid choice! Please try again.");
+		try {
+			initializeMessages();
+			boolean running = true;
+			while (running) {
+				printMenu();
+				int choice = getIntInput();
+				switch (choice) {
+					case 1:
+						addMessage();
+						break;
+					case 2:
+						deleteMessage();
+						break;
+					case 3:
+						printAllMessages();
+						break;
+					case 4:
+						searchByKeywords();
+						break;
+					case 5:
+						printDigitalMessages();
+						break;
+					case 6:
+						printMessagePreviews();
+						break;
+					case 0:
+						running = false;
+						System.out.println("Exiting program...");
+						break;
+					default:
+						System.out.println("Invalid choice! Please try again.");
+				}
 			}
+		} catch (Exception e) {
+			System.err.println("Fatal error occurred: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			scanner.close();
 		}
-		scanner.close();
 	}
 
 	// Initialize test data

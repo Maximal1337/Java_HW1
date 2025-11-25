@@ -14,6 +14,7 @@ public abstract class Message {
 	public String getSender() {
 		return sender;
 	}
+	
 	public void setSender(String sender) throws IllegalArgumentException{
 		if(sender == null || sender.trim().isEmpty()) throw new IllegalArgumentException("sender cant be null or empty");
 		this.sender = sender;
@@ -22,6 +23,7 @@ public abstract class Message {
 	public String getContent() {
 		return content;
 	}
+	
 	public void setContent(String content) throws IllegalArgumentException {
 		if(content == null || content.trim().isEmpty()) throw new IllegalArgumentException("content cant be null or empty");
 		this.content = content;
@@ -53,8 +55,9 @@ public abstract class Message {
 		setSendDate(sendDate);
 	}
 	
+	@Override
 	public String toString() {
-		return "Sender: " + getSender() + ", content: " + getContent() + ", sendDate: " + getSendDate().toString() + ", category: " + getMessageCategory();                               
+		return "Sender: " + getSender() + ", content: " + getContent() + ", sendDate: " + getSendDate().toString() + ", category: " + getMessageCategory();
 	}
 	
 	public Boolean find(ArrayList<String> keywords) {

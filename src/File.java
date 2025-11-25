@@ -21,7 +21,8 @@ public class File {
 		setFileName(fileName);
 		setFileType(fileType);
 	}
-	
+
+	@Override
 	public String toString() {
 		return "FileName: " + getFileName() + ", fileType: " + getFileType();
 	}
