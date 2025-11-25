@@ -1,4 +1,4 @@
-# Java Messaging System - HW1
+# Java Messaging System
 
 A comprehensive object-oriented messaging system built in Java that demonstrates inheritance, polymorphism, exception handling, and interface implementation through a unified message management platform.
 
